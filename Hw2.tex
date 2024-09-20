@@ -1,0 +1,943 @@
+\documentclass[10pt, AMS Euler]{article}
+\textheight=9.25in \textwidth=7in \topmargin=-.75in
+\oddsidemargin=-0.25in
+\evensidemargin=-0.25in
+\usepackage{url}  % The bib file uses this
+\usepackage{graphicx} %to import pictures
+\usepackage{amsmath, amssymb, color, wasysym}
+\usepackage{theorem, concrete, multicol}
+\usepackage[normalem]{ulem} %for strikethrough (\sout{blah})
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath} % this is the package that will be with you for the rest of your life
+\usepackage{mathtools} % a package that includes more math notations
+\usepackage{amssymb} % this is the package that gives the beautiful integer symbol
+\usepackage{amsthm} % this package includes the \begin{proof} environment
+\usepackage[dvipsnames]{xcolor} % to have color, and this package has to be before tikz
+\usepackage{tikz} % this package exists for line 12 ~ 22, we will come back here after midterm
+\usepackage{hyperref} % this package is for hyperlinks
+\usepackage{fancyhdr} % this package makes your document cooler!
+\usepackage{graphicx} % i can put picture in now!
+\usepackage{array} % this package makes me stretch the table
+\usepackage[left=0.8in, right=0.8in, top=1in, bottom=1in]{geometry}
+
+\setlength{\intextsep}{5mm} \setlength{\textfloatsep}{5mm}
+\setlength{\floatsep}{5mm}
+
+
+{\theorembodyfont{\rmfamily}
+	\newtheorem{definition}{Definition}[section]}
+{\theorembodyfont{\rmfamily} \newtheorem{example}{Example}[section]}
+{\theorembodyfont{\rmfamily} \newtheorem{lemma}{Lemma}[section]}
+{\theorembodyfont{\rmfamily} \newtheorem{theorem}{Theorem}[section]}
+{\theorembodyfont{\rmfamily} \newenvironment{proof}{\par{\itProof:}}{\nopagebreak[4]\rule{2mm}{2mm}}}
+{\theorembodyfont{\rmfamily}
+	\newenvironment{solution}{\par{\bf{Solution:}}}{\nopagebreak[4]\rule{2mm}{2mm}}}
+
+
+%%%%  SHORTCUT COMMANDS  %%%%
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\arc}{\rightarrow}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+
+%%%%  footnote style %%%%
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\pagestyle{empty}
+\begin{document}
+
+\noindent{\bf Homework \#2:}  {\bf Due 9/20/2024}  \\
+\textbf{Rylei Mindrum | A02352206} \\
+Please respond to as many of the following prompts as you can
+	by writing readable and valid arguments that exhibit mathematical fluency to the extent that you can do this.
+	
+	\begin{enumerate}
+		
+		
+		
+		
+		
+		\item Recall that we discussed number systems by writing an ordered triple $(X, Y, Z)$, where $X$ is a set of things we call `numbers',
+		$Y$ is the notation for an operation we call `addition', and $Z$ is notation for what we call `multiplication'.
+		We can do something analogous with \emph{Logical Systems}: we specify the set of statements, the function that determines truth, and the
+		logical operations and operators.  For the logical system that we (and essentially everyone) use, lets use the notation
+		$(\mathcal{M}, \Phi, \implies, \wedge, \vee, \neg)$ to mean that $\mathcal{M}$ is the set of statements we work with,
+		$\Phi$ is the function that assesses truth, and the others are the logical operations and operator.
+Please prove or disprove that the our logical system $(\mathcal{M}, \Phi, \implies, \wedge, \vee, \neg)$ can be replaced with
+		$(\mathcal{M}, \Phi, \nabla)$, where $\nabla$ is defined as follows.  For $x, y \in \mathcal{M}$, $x \; \nabla\;y$ is equivalent to
+		$\neg(x \vee y)$.
+\\\\
+		\textbf{Claim}: The logical system $(\mathcal{M}, \Phi, \implies, \wedge, \vee, \neg)$ \textbf{can} be replaced with $(\mathcal{M}, \Phi, \nabla)$ where $x, y \in \mathcal{M}$, $x \; \nabla\;y$ is equivalent to $\neg(x \vee y)$.             
+		\\\\
+		\textbf{Proof}: In simple terms, I will now showcase that $ \wedge, \vee, \neg $ can all be replaced by  $\; \nabla\;$.  I will show that you can get $\vee$ and $ \neg $ using $\; \nabla\;$.  This can be shown by using Truth Tables. 
+
+First, I will define $\mathcal{M}$ and $\Phi$ cause it will make things easier (for me at least)
+\begin{itemize}
+  \item $\mathcal{M}$ - The Set of Statements
+  \item $\Phi$ - The Function to Assess the Truth
+\end{itemize}  
+Now, I will define x and y with implies ($\implies$), and ($\wedge$), and or ($\vee$). 
+\begin{itemize}
+  \item implies ($\implies$) demonstrates "if, then". If both sides of the statement are true then the output is also true and vise verse for both false. If the both do not match, then the output will match the second character in the table, In this case y. 
+  \item and ($\wedge$) demonstrates both x and y as being true otherwise the output will be false. 
+  \item or ($\vee$) demonstrates x or y or both being true otherwise the output returns as false.
+\end{itemize}  
+
+\begin{tabular}{|c|c|c|c|c|}
+              \hline
+              x& y& x $\implies$ y& x $\wedge$ y&x $\vee$ y\\
+              \hline
+              T& T& T& T&T\\
+              \hline
+              F& T& F& F&T\\
+              \hline
+ T& F& F& F&T\\\hline
+ F& F& F& F&F\\\hline
+            \end{tabular}
+\\Next, I will negate ($\neg$) all of the above. 
+\\ The negated outputs will be opposite of the outputs in the previous table.
+\begin{tabular}{|c|c|c|c|c|}
+              \hline
+              $\neg$x& $\neg$y& ($\neg$y) $\implies$ ($\neg$x)& ($\neg x) \wedge (\neg y$)&($\neg x) \vee (\neg y$)\\
+              \hline
+              F& F& T& F&F\\
+              \hline
+              T& F& T& T&F\\
+              \hline
+ F& T& F& T&F\\\hline
+ T& T& T& T&T\\\hline
+            \end{tabular}
+\\Now, I will compare the negations ($\neg$) of the above with the original x and y values using or ($\vee$).
+\\\begin{tabular}{|c||c|c|c|c|c|}
+              \hline
+               x&$\neg$x&  y&$\neg$y& ($\neg$x) $\vee$ y& ($\neg y) \vee x$\\
+              \hline
+               T&F&  T&F& T& T\\
+              \hline
+               F&T&  T&F& F& T\\
+              \hline
+  T&F&  F&T& T& F\\\hline
+  F&T&  F&T& T& T\\\hline
+            \end{tabular}
+\\ As you can see the negated versions of each character compared with the or of the other original value is equal to the non-negated first value. (negate x or y is equal to x)
+\\Now I will showcase the functionality of nabla ($\nabla$) with previous operations. 
+\\ and, I will confirm that  $\neg$(x $\vee$ y) is equivalent to $x \nabla y$, to express $\vee$ in terms of $\nabla$.
+\\\begin{tabular}{|c||c|c|}
+              \hline
+               $x \vee y$&$\neg$($x \vee y$)&  $x \nabla y$\\
+              \hline
+               T&F&  F\\
+              \hline
+               T&F&  F\\
+              \hline
+  T&F&  F\\\hline
+  F&T&  T\\\hline
+            \end{tabular}
+\\ So, x nabla y and nabla x nabla y must be equal to x or y ($x \vee y$)
+\\\begin{tabular}{|c||c|}
+              \hline
+               ($x \nabla y)\nabla(x \nabla y$)&$x \vee y$\\
+              \hline
+               T&F\\
+              \hline
+               T&F\\
+              \hline
+  T&F\\\hline
+  F&T\\\hline
+            \end{tabular}
+\\ Continuing, $\neg x = x \nabla x = \neg(x \nabla x)$ 
+\\\begin{tabular}{|c||c|c|c|}
+              \hline
+               $\neg x$ & $(x \vee x)$&$\neg (x \vee x)$&$x \nabla x$ \\
+              \hline
+               F & T&F&F \\
+              \hline
+               T & F&T&T\\
+              \hline
+  F & T&F&F \\\hline
+  T & F&T&T \\\hline
+            \end{tabular}
+\\ And y follows the same principle. 
+\\ Thus,$ \neg x and \neg y $ can be constructed using $\nabla$.
+\\ Now I will express and $\wedge$ using nabla. This can be understood by using De Morgan's Law. which is defined as follows: $x \wedge y = \neg(\neg x \vee \neg y)$. We know from the previous table that $\neg x = x \nabla x$ and $\neg y = y \nabla y$. Thus, we can rewrite the and statement as: $ x \wedge y = \neg((x \nabla x) \vee (y \nabla y))$.  Then we can use the same premise that we found for $\vee$ earlier ($ x \vee y = (x \nabla y) \nabla (x \nabla y)$). And the expression becomes: $x \wedge y = ((x \nabla x) \nabla (y \nabla y)) \nabla ((x \nabla x) \nabla (y \nabla y))$. \\ AKA: $\wedge$ constructed with $\nabla$.
+\\\begin{tabular}{|c||c|c|c|c|}
+              \hline
+               $x \wedge y$& $ \neg(\neg x \vee \neg y)$&$\neg x$/$x \nabla x$&$\neg y$/$y \nabla y$&$\neg((x \nabla x) \vee (y \nabla y))$ \\
+              \hline
+               T& T&F&F  & T\\
+              \hline
+               F& F&T&T & F\\
+              \hline
+  T& T&F&F  & T\\\hline
+  F& F&T&T  & F\\\hline
+            \end{tabular}
+\\\begin{tabular}{|c||c|}
+              \hline
+               $ x \vee y / (x \nabla y) \nabla (x \nabla y)$& $x \wedge y/(x \nabla x)\nabla (y \nabla y)) \nabla ((x \nabla x) \nabla (y \nabla y))$\\
+              \hline
+               T& T\\
+              \hline
+               T & F\\
+              \hline
+  T& T\\\hline
+  F& F\\\hline
+            \end{tabular}
+\\ So, $\wedge$ can be constructed using $\nabla$. 
+\\ \\ \textbf{Conclusion}: Based off of the tables above you can see that $\wedge, \vee, and \neg$can all be replaced by nabla making this claim true. \\\\
+\item Prove that the following game must have a winner.  Place $6$ dots equally spaced on a circle on a piece of paper.
+		Player A has a red marker and Player B has a blue marker.
+		Players take turns connecting pairs of dots with line segments using their respective colored markers,
+		only one line segment between any two dots (therefore at most $15$ line segments will be drawn).
+		The winner is the first to connect three dots mutually with their respective color, that is, the first to create a monochromatic ``triangle''
+		in their marker's color:
+        
+\textbf{Claim}: When rules are followed, the game will always have a winner.
+
+\textbf{Proof}:
+First, I believe that it is fundamental to learn and understand the rules, as well as visually see a play-through. The game exists on a grid of 6 dots placed in a round shape. Players, defined using red and blue lines, take turns placing lines to attempt to make a complete triangle with Vertices on the dots. There are 6 dots and two players, so there will be a maximum of 15 total lines. 7 lines of one color, 8 of the other. \\
+Lets walk through an example and I will explain what is happening along the way.  For this example I will start with Red but it doesn't matter which color goes first. \\
+Beginning, Red places a line. They can go anywhere. (Anyone can go anywhere but you may want to have some strategy)
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+        \end{center}
+Now Blue will place a line:
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, blue!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+And back to red who will likely play a line with the same vertice as the first, but again they dont have to.         \end{center}
+
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+Now blue should block red, unless they want to lose...
+        \end{center}
+
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+And now red should block blue. 
+        \end{center}
+
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+black to blue for the block
+        \end{center}
+
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (1,2)[ultra thick, blue!75!white];
+            \end{tikzpicture}\\
+and now, red is not forced to block so they will move somewhere new.
+        \end{center}
+
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (1,2)[ultra thick, blue!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, blue!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, blue!75!white];
+            \end{tikzpicture}\\
+After this notice how red can win in multiple ways. blue will try to block but ultimately will fail. 
+        \end{center}
+
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (1,2)[ultra thick, blue!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, red!75!white];
+                \draw(2,0) -- (2,2)[ultra thick, blue!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, blue!75!white];
+            \end{tikzpicture}\\
+Blue tried, however red still has the win
+        \end{center}
+
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(0,1) -- (1,2)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (1,2)[ultra thick, blue!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, red!75!white];
+                \draw(2,0) -- (2,2)[ultra thick, blue!75!white];
+                \draw(1,0) -- (3,1)[ultra thick, red!75!white];
+                \draw(0,0) -- (0,0)[ultra thick, blue!75!white];
+            \end{tikzpicture}\\
+After this notice how red can win in multiple ways. blue will try to block but ultimately will fail. 
+        \end{center}
+
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,0) -- (2,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,0) -- (3,1)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+Here is the winning triangle
+\end{center}
+So, that gives a brief overview of how the game is played and how someone wins, now lets prove that someone always has to win. 
+\\ We can divide this problem up into sections. Lets start by looking a one specific point and its correlation with a singular color and with both colors. Lets look at the top left point. (but note you could do this for any point on the grid). The game rules state that the game is played till someone wins or the grid is full. I will show the someone always wins when the grid is full even if they are purposly trying to lose. 
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, red!75!white];
+            \end{tikzpicture}
+\end{center}
+
+As you can see, there are 5 red lines placed. And 0 blue lines coming from the point. This demonstrates relation 1 from the following table:
+\begin{tabular}{|c||c|c|}
+              \hline
+               relation& red &blue\\
+              \hline
+               1& 5&0\\
+              \hline
+               2& 4&1\\
+              \hline
+  3& 3&2\\\hline
+  4& 2&3\\\hline
+ 5& 1&4\\\hline
+ 6& 0&5\\\hline
+            \end{tabular}
+\\ Where the table is symmetrical and red vs blue in and of themselves is not key to the problem, I will solve for relations 1, 2, and 3. If you inverse the colors these will showcase the exact same as 4, 5, and 6. Where 1=6, 2=5, and 3=4. \\ So, we have 5 red lines these are the "graphs" for a singular vertices. lets add our 5 blue lines. 
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, blue!75!white];
+                \draw(3,1) -- (2,2)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white];
+            \end{tikzpicture}\\
+Blue tried to block all of red options to create a triangle. However, it missed one because blue went second. So now red will place the final line and there is nothing that blue could have done to stop this. 
+\end{center}
+
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, blue!75!white];
+                \draw(3,1) -- (2,2)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white];
+                \draw(1,0) -- (3,1)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+Blue tried to block all of red options to create a triangle. However, with the placement of the red lines they have many options for a place to win the game. And because blue went second they have to now wait. leaving  red to place the final line and there is nothing that blue could have done to stop this. 
+\end{center}
+
+The idea of this is that neither player is actually trying to win the game. In a normal game, it would end long before it gets to this point. However, in this scenario in the final round there is no where red could have gone to not win the game. 
+
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white];
+
+            \end{tikzpicture}\\
+ lets move on to relation 2 from the table.... 4 red and 1 blue all extending from one vertices. 
+\end{center}
+First, we will have to get blue up to speed in terms of lines place. this means we will add 3 lines to the board. Again we are not trying to win the game we want to get to 15 lines with no winner so the lines will be placed to avoid a blue triangle. 
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white];
+
+            \end{tikzpicture}\\
+red is now left with one space left to place a line in order to not win the game
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+Similarly, blue is now left with only one space to play in order to not win, 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white];
+            \end{tikzpicture}\\
+Now we are back to red and they have no option but to win the game.
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (1,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,0)[ultra thick, blue!75!white];
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white];
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+Thus, there is not a way to avoid victory when looking at relation 2 from the table.
+\end{center}
+Now for relation 3... 3 red and 2 blue from a point. 
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+            \end{tikzpicture}\\
+Now player two (blue) needs to place its line to be even with red. Blue is not trying to win so they will place a line to connect with red. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+            \end{tikzpicture}\\
+Now player two (blue) needs to place its line to be even with red. Blue is not trying to win so they will place a line to connect with red. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+And now back to red who is also trying not to win. So, similarly they will place a line to connect to a blue. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+            \end{tikzpicture}\\
+And blue will follow the same non-winning strategy. They will place a line to connect to a red. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+And red will follow the same non-winning strategy. They will place a line to connect to a blue. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white]; 
+            \end{tikzpicture}\\
+Likewise, blue now plays a non-winning option.
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+
+            \end{tikzpicture}\\
+Now, red will place in a non-winning space that leaves blue with a space to play. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, blue!75!white]; 
+            \end{tikzpicture}\\
+Blue will play in that non-winning space.
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(3,1) -- (1,0)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+Red will play in a non-winning space.
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(3,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (2,2)[ultra thick, blue!75!white]; 
+            \end{tikzpicture}\\
+Blue will play in its last non-winning space.
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(1,2) -- (1,0)[ultra thick, blue!75!white];
+                \draw(1,2) -- (0,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(2,2) -- (1,0)[ultra thick, red!75!white];
+                \draw(0,1) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (2,0)[ultra thick, red!75!white];
+                \draw(1,0) -- (2,0)[ultra thick, blue!75!white]; 
+                \draw(0,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (3,1)[ultra thick, blue!75!white]; 
+                \draw(3,1) -- (1,0)[ultra thick, red!75!white];
+                \draw(2,0) -- (2,2)[ultra thick, blue!75!white]; 
+                \draw(3,1) -- (2,2)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+And red has to play line 15, the last line in the game, in a winning spot. 
+\end{center}
+\begin{center}
+            \begin{tikzpicture}[scale=2]
+                \draw(0,1) circle[radius=1pt, black];
+                \draw(1,0) circle[radius=1pt, black];
+                \draw(1,2) circle[radius=1pt, black];
+                \draw(2,0) circle[radius=1pt, black];
+                \draw(2,2) circle[radius=1pt, black];
+                \draw(3,1) circle[radius=1pt, black];
+                \draw(1,2) -- (2,2)[ultra thick, red!75!white];
+                \draw(1,2) -- (3,1)[ultra thick, red!75!white];
+                \draw(3,1) -- (2,2)[ultra thick, red!75!white];
+            \end{tikzpicture}\\
+The winning triangle
+\end{center}
+Based on the previous models, you can see that you can try very hard to lose the game, but ultimately you will have to place a line that you do not want to in a winning space. 
+\\Meaning that the claim is true, someone will always win the game. 
+		\item Please prove or disprove: \emph{If $n \in \Z^+$, then $n^2 + n +41$ is prime.} \\
+            factor that shit and it proves that its not a prime
+		\textbf{Claim}: \emph{$n^2 + n +41$ If $n \in \Z^+$} is \textbf{not} a prime
+
+        \textbf{Proof}: 
+First, I want to define some key points in this question. 
+\\a). $\Z^{+}$ is the set of all positive integers
+\\b). Prime Number: A natural number greater than 1 with no positive divisors other than 1 and itself. 
+\\ Disproving the claim \emph{$n^2 + n +41$ If $n \in \Z^+$} is not a prime requires a singular example that does not work in the equation. \\ I will make a table to show inputs, equations, sum, and prime or not prime. \\
+\begin{tabular}{|c||c|c|c|}
+              \hline
+               Input
+n& Equation
+$n^{2}+n+41$& Sum&Prime/Not\\
+              \hline
+               n=1& $1^{2}+1+41$& 43&Prime\\
+              \hline
+               n=2& $2^{2}+2+41$& 47&Prime\\
+              \hline
+  n=3& $3^{2}+3+41$& 53&Prime\\\hline
+  n=4& $4^{2}+4+41$& 61&Prime\\\hline
+ n=5& $5^{2}+5+41$& 71&Prime\\\hline
+ n=6& $6^{2}+6+41$& 83&Prime\\\hline
+ n=7& $7^{2}+7+41$& 97&Prime\\\hline
+            \end{tabular}
+
+As you can see, as we begin this process the numbers seem to all be prime. But, what happens when \textbf{n} gets closer to the constant \textbf{41}? I shall make another table: \\
+\begin{tabular}{|c||c|c|c|}
+              \hline
+               Input
+n& Equation
+$n^{2}+n+41$& Sum&Prime/Not\\
+              \hline
+               n=39& $39^{2}+39+41$& 1601&Prime\\
+              \hline
+               n=40& $40^{2}+40+41$& 1681&Not Prime!\\
+              \hline
+  n=41& $41^{2}+41+41$& 1763&Not Prime!\\\hline
+  n=42& $42^{2}+42+41$& 1847&Prime\\\hline
+            \end{tabular}
+\\From this table I see that there are inputs for n that give not prime outputs in the equation. when n is 40 the output \textbf{1681} is divisible by 1, itself, and 41. This number being divisible by 41 showcases that it is not prime meaning that $n^2 + n +41$ If $n \in \Z^+$ is not always prime. Or simply, this claim is false. \\
+\textbf{Conclusion}: If $n \in \Z^+$, then $n^2 + n +41$ is \textbf{NOT} prime. \\\\
+		\item Suppose $x$ is a positive integer with $n$ digits, say $x = d_1d_2d_3\cdots d_n$. In other words,
+		$d_i \in \{0,1,2,\dots, 9\}$ for $1 \leq i \leq n$, but
+		$d_1 \neq 0$.  Here's a definition: For $a, b \in \Z$, $a$ is a {\bf divisor} of $b$ if $b = ak$, for some $k \in \Z$.
+		Please prove the following statement: \emph{If $9$ is a divisor of $d_1 + d_2 + \cdots + d_n$, then $9$ is a divisor of $x$.}
+\textbf{Claim}: The statement "If $9$ is a divisor of $d_1 + d_2 + \cdots + d_n$, then $9$ is a divisor of $x$" is \textbf{true} \\
+\textbf{Proof}: 
+Defining the problem, number \textbf{x} has \textbf{n} digits. digit 1 is not equal to 0, the rest of the digits are between 0 and 9. the digits in number x added together are a divisor of x itself, in this case, 9. \\
+
+x in this scenario is a positive integer with n number of digits. Say, $x =d_{1},d_{2},d_{3},...,d_{n}$. Alternatively, $d_{i}$ in the set of {0,1,2,3,4,5,6,7,8,9} for $1 <= i <= n$ and $d_{1}$ is not equal to 0.  \\
+For a,b in the set of $\Z$ a is a divisor of b. If b=a*k for some k in the set of $\Z$. \\
+The digits in number x added together are a divisor of x itself.  \\
+I will now define the equation for number x with n digits: \\
+$d_{1}*10^{n-1}+d_{2}*10^{n-2}+...+d_{n}*10^{0}$ \\
+$d_{1},d_{2},...,d_{n}$ are the digits of x.\\ 
+x can be written as: $x=d_{1}*10^{n-1}+d_{2}*10^{n-2}+...+d_{n}$ \\
+So, if 9 is a divisor of $d_{1}+d_{2}+...+d_{n}$ then 9 is a divisor of x.
+
+defining divisibility by 9: \\
+a number is divisible by 9 if and only if the sum of its digits are divisible by 9. \\
+\end{enumerate}
+We will use the previous information to prove divisibility by 9 in the context of the problem. \\
+Starting with analyzing x mod 9\\
+modulo is used to find the remainder during a division of two numbers. \\
+the powers of 10 modulo 9 show that $10 \equiv 1$ (mod9)\\
+because 10-1=9 and 9 is divisible by itself (9).\\
+Higher powers of 10 will also be congruent to 1 modulo 9 which I will show below: \\
+$10^{k} \equiv 1$ (mod 9) for any non-negative integer k.
+
+So, each digit in $d_{i}$ can be defined as follows: \\
+$d_{1}*10^{n-1} \equiv d_{1}$ (mod 9) \\
+$d_{2}*10^{n-2} \equiv d_{2}$ (mod 9) \\
+$\ddots$ (i don't know how to make the dots vertical???) \\
+$d_{n}*10^{0} \equiv d_{n}$ (mod 9)
+
+Showcasing that each number x satisfying the following congruent modulo 9. \\
+$d_{1}*10^{n-1} + d_{2}*10^{n-2}+...+d_{n} \equiv d_{1} + d_{2} +...+ d_{n}$ (mod 9) \\
+
+Thus, $x = d_{1} + d_{2} +...+ d_{n}$ (mod 9) \\
+if 9 divides the sum of the digits then $x \equiv 0$ (mod 9) \\
+meaning 9 divides x.
+
+Now I will show an example: \\
+$1845 = 1(1000)+8(100)+4(10)+5(1)$ \\
+$1845 = 1(999+1)+8(99+1)+4(9+1)+5$ \\
+$1845 = 1(999)+1+8(99)+1+4(9)+1+5$ \\
+$1845 = [1(999)+8(99)+4(9)]+1+8+4+5$ \\
+
+$d_{1} = 1, d_{2} = 8, d_{3} = 4, d_{4} = 5$ \\
+1 + 8 + 4 + 5 = 18 \\
+
+Now I check if 18/9 which it is and it equals 2. \\
+Now I check if 9 divides 1845 \\
+
+$$\begin{array}{rll}
+    205 & & \\
+    \enclose{longdiv}{1845} & & \\
+    \underline{18\phantom{00}} & & \\
+     004\phantom{00} & & \\
+    \underline{45\phantom{0}} & & \\
+    45 & & \\
+    \underline{00} & &
+\end{array}$$
+This shows that both the sum and the actual number we are checking are divisible by 9.  \\
+
+Continuing, lets plug it into the equation that we defined. \\
+$1*10^{1-1}+8*10^{8-2}+4*10^{4-3}+5*10^{0}$ \\
+$1*1+8*1000000+4*10+5*1$ \\
+$1+8000000+40+5$ \\
+$8000046 = d_{1}+d_{2}+d_{3}+d_{4} (mod 9)$ \\
+$8+0+0+0+0+4+6 = 18$ \\
+$18/9 = 2$\\
+
+Therefore this claim is \textbf{true}. :)\\
+
+
+\end{document}
+
+	
+	
+	
+	\noindent \underline{\hspace{3in}}\\
+
+\end{document}
